@@ -1,10 +1,13 @@
 import "./App.css";
-import Header from "./components/Header";
+import "./GlobalStyle.css";
+import Footer from "./components/Footer";
+import Header from "./components/Header/Header";
 
 function App() {
   return (
     <>
       <Header />
+      <Footer />
     </>
   );
 }

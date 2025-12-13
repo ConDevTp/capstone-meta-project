@@ -1,5 +1,6 @@
-import Logo from "../assets/Logo.svg";
-import Nav from "./Nav";
+import Logo from "../../assets/Logo.svg";
+import "./header.css";
+import Nav from "../Nav/Nav";
 
 const Header = () => {
   return (
