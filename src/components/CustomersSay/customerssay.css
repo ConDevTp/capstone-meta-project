@@ -1,0 +1,59 @@
+.CustomersSay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.CustomersSayHeading {
+  color: #edefee;
+  margin-top: 90px;
+}
+
+/* Customer List */
+
+.customers-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 20px;
+  margin-top: 90px;
+  margin-bottom: 110px;
+}
+
+.customer-card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.customer-rating {
+  height: 15px;
+  margin-bottom: 5px;
+  border-radius: 0px;
+}
+
+.customer-details {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 100%;
+}
+
+.customer-details .customer-image {
+  max-width: 50px;
+  margin: 10px 0px;
+}
+
+.customer-details .customer-name {
+  margin-left: 15px;
+  color: #1e1e1e;
+}
+
+.customer-description {
+  line-height: 1.5;
+  margin-top: 10px;
+  color: #1e1e1e;
+}

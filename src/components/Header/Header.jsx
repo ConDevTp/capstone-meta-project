@@ -1,14 +1,20 @@
 import Logo from "../../assets/Logo.svg";
 import "./header.css";
 import Nav from "../Nav/Nav";
+import Content from "../Content/Content";
+import { Link } from "react-router";
 
 const Header = () => {
   return (
-    <header>
-      <img src={Logo} alt="Little Lemon" />
+    <Content>
+      <header>
+        <Link to="/">
+          <img src={Logo} alt="Little Lemon" />
+        </Link>
 
-      <Nav />
-    </header>
+        <Nav />
+      </header>
+    </Content>
   );
 };
 

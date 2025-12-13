@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import "./nav.css";
 
 const Nav = () => {
@@ -5,29 +6,29 @@ const Nav = () => {
     <nav className="nav-bar">
       <ul className="nav-list">
         <li className="nav-item">
-          <a href="/" className="nav-link">
+          <Link to="/" className="nav-link">
             Home
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/about" className="nav-link">
+          <Link to="/about" className="nav-link">
             About
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/menu" className="nav-link">
+          <Link to="/menu" className="nav-link">
             Menu
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/reservation" className="nav-link">
+          <Link to="/reservation" className="nav-link">
             Reservation
-          </a>
+          </Link>
         </li>
         <li className="nav-item">
-          <a href="/order" className="nav-link">
+          <Link to="/booking" className="nav-link">
             Order Online
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

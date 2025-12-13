@@ -1,0 +1,29 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding: 70px 0px;
+  color: #edefee;
+}
+
+.footer-logo {
+  border-radius: 0px;
+  max-width: 100px;
+}
+
+.footer .footer-title {
+  margin-bottom: 25px;
+}
+
+.footer-item {
+  margin: 10px 0px;
+}
+
+.footer-item a {
+  color: #edefee;
+  transition: color 0.3s;
+}
+
+.footer-item a:hover {
+  color: #f4ce14;
+}

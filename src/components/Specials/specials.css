@@ -1,0 +1,83 @@
+.specials {
+  margin-top: 80px;
+}
+
+.Specials-Heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Specials-Heading > * {
+  color: #333333;
+}
+
+/* SpecialsList */
+
+.SpecialsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
+  margin-top: 50px;
+}
+
+.food-card {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  background-color: #edefee;
+  border-radius: 16px 16px 0px 0px;
+  overflow: hidden;
+  line-height: 1.5;
+}
+
+.food-image {
+  width: 100%;
+  border-radius: 0px;
+  height: 250px;
+  object-fit: cover;
+}
+
+.food-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 15px 20px;
+}
+
+.food-details .food-price {
+  color: #f4ce14;
+  font-size: 16px;
+}
+
+.food-details .food-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 5px;
+  color: #333333;
+}
+
+.food-description {
+  padding: 0 20px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+.food-card .order-btn {
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  margin-top: auto;
+  background: transparent;
+  margin-bottom: 15px;
+  color: #333333;
+}
+
+.food-card .order-btn .order-icon {
+  margin-left: 10px;
+}

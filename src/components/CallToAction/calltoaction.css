@@ -1,0 +1,39 @@
+.calltoaction {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0px;
+}
+
+.calltoaction .calltoaction-image {
+  width: 35%;
+  height: 420px;
+  object-fit: cover;
+}
+
+.calltoaction .calltoaction-detals {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 60%;
+  padding-top: 10px;
+}
+
+.calltoaction .calltoaction-title {
+  color: #f4ce14;
+}
+
+.calltoaction .calltoaction-subtitle,
+.calltoaction .calltoaction-leadtext {
+  color: #edefee;
+  margin-top: 10px;
+}
+
+.calltoaction .calltoaction-leadtext {
+  margin-top: 20px;
+  line-height: 1.5;
+}
+
+.calltoaction .calltoaction-order {
+  margin-top: 50px !important;
+}

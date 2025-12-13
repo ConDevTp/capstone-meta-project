@@ -1,0 +1,10 @@
+.main-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.content {
+  grid-column: 3 / span 8;
+}
