@@ -1,8 +1,12 @@
-import { useLocation } from "react-router";
+import { useEffect, useState } from "react";
 
 function ConfirmedBooking() {
-  const location = useLocation();
-  const bookingData = location.state;
+  const [bookingData, setBookingData] = useState(null);
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("bookingData"));
+    setBookingData(data);
+  }, []);
 
   if (!bookingData) {
     return <p>No booking data available. Please make a booking first.</p>;

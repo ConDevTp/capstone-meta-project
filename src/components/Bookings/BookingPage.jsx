@@ -45,10 +45,12 @@ const BookingPage = () => {
     if (typeof window.submitAPI === "function") {
       const success = await window.submitAPI(data);
       if (success) {
-        navigate("/confirmed-booking", { state: data });
+        localStorage.setItem("bookingData", JSON.stringify(data)); // ذخیره در localStorage
+        navigate("/confirmed-booking"); // فقط صفحه تایید برو
       }
     } else {
-      navigate("/confirmed-booking", { state: data });
+      localStorage.setItem("bookingData", JSON.stringify(data));
+      navigate("/confirmed-booking");
     }
   };
 

@@ -1,5 +1,7 @@
-// src/components/Bookings/BookingPage.test.js
 import { initializeTimes, updateTimes } from "./BookingPage";
+import { render, screen } from "@testing-library/react";
+import ConfirmedBooking from "./ConfirmedBooking";
+import React from "react";
 
 // Mock fetchAPI
 const mockFetchAPI = jest.fn();
@@ -7,6 +9,7 @@ const mockFetchAPI = jest.fn();
 beforeEach(() => {
   jest.clearAllMocks();
   global.fetchAPI = mockFetchAPI;
+  localStorage.clear();
 });
 
 describe("BookingPage API functions with fetchAPI", () => {
@@ -33,5 +36,30 @@ describe("BookingPage API functions with fetchAPI", () => {
     const state = ["17:00", "18:00"];
     const newTimes = updateTimes(state, { type: "UNKNOWN" });
     expect(newTimes).toEqual(state);
+  });
+});
+
+describe("ConfirmedBooking localStorage behavior", () => {
+  test("reads booking data from localStorage and displays it", () => {
+    const mockData = {
+      date: "2025-12-14",
+      time: "18:00",
+      guests: 2,
+      occasion: "Birthday",
+    };
+    localStorage.setItem("bookingData", JSON.stringify(mockData));
+
+    render(<ConfirmedBooking />);
+
+    expect(screen.getByText(/Booking Confirmed!/i)).toBeInTheDocument();
+    expect(screen.getByText(/Date:\s*2025-12-14/i)).toBeInTheDocument();
+    expect(screen.getByText(/Time:\s*18:00/i)).toBeInTheDocument();
+    expect(screen.getByText(/Guests:\s*2/i)).toBeInTheDocument();
+    expect(screen.getByText(/Occasion:\s*Birthday/i)).toBeInTheDocument();
+  });
+
+  test("shows message if no booking data in localStorage", () => {
+    render(<ConfirmedBooking />);
+    expect(screen.getByText(/No booking data available/i)).toBeInTheDocument();
   });
 });
