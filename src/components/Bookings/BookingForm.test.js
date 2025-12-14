@@ -1,7 +1,9 @@
+// src/components/Bookings/BookingForm.test.js
 import { initializeTimes, updateTimes } from "./BookingPage";
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import BookingForm from "./BookingForm";
 import ConfirmedBooking from "./ConfirmedBooking";
-import React from "react";
+import React, { useState } from "react";
 
 // Mock fetchAPI
 const mockFetchAPI = jest.fn();
@@ -61,5 +63,137 @@ describe("ConfirmedBooking localStorage behavior", () => {
   test("shows message if no booking data in localStorage", () => {
     render(<ConfirmedBooking />);
     expect(screen.getByText(/No booking data available/i)).toBeInTheDocument();
+  });
+});
+
+describe("BookingForm validation and submission", () => {
+  test("renders all form fields with correct HTML5 validation", () => {
+    const mockSubmit = jest.fn();
+    render(
+      <BookingForm
+        date=""
+        setDate={() => {}}
+        time=""
+        setTime={() => {}}
+        guests={1}
+        setGuests={() => {}}
+        occasion=""
+        setOccasion={() => {}}
+        availableTimes={["17:00", "18:00"]}
+        handleSubmit={mockSubmit}
+      />
+    );
+
+    expect(screen.getByLabelText(/Date/i)).toHaveAttribute("required");
+    expect(screen.getByLabelText(/Time/i)).toHaveAttribute("required");
+    expect(screen.getByLabelText(/Number of guests/i)).toHaveAttribute(
+      "required"
+    );
+    expect(screen.getByLabelText(/Number of guests/i)).toHaveAttribute(
+      "min",
+      "1"
+    );
+    expect(screen.getByLabelText(/Number of guests/i)).toHaveAttribute(
+      "max",
+      "10"
+    );
+    expect(screen.getByLabelText(/Occasion/i)).toHaveAttribute("required");
+  });
+
+  test("submit button is disabled for invalid form", () => {
+    const mockSubmit = jest.fn();
+    render(
+      <BookingForm
+        date=""
+        setDate={() => {}}
+        time=""
+        setTime={() => {}}
+        guests={0}
+        setGuests={() => {}}
+        occasion=""
+        setOccasion={() => {}}
+        availableTimes={["17:00"]}
+        handleSubmit={mockSubmit}
+      />
+    );
+    const button = screen.getByRole("button", {
+      name: /Make Your Reservation/i,
+    });
+    expect(button).toBeDisabled();
+  });
+
+  test("submit button is enabled when form is valid", () => {
+    const mockSubmit = jest.fn();
+    render(
+      <BookingForm
+        date="2025-12-14"
+        setDate={() => {}}
+        time="17:00"
+        setTime={() => {}}
+        guests={2}
+        setGuests={() => {}}
+        occasion="Birthday"
+        setOccasion={() => {}}
+        availableTimes={["17:00", "18:00"]}
+        handleSubmit={mockSubmit}
+      />
+    );
+    const button = screen.getByRole("button", {
+      name: /Make Your Reservation/i,
+    });
+    expect(button).toBeEnabled();
+  });
+
+  test("form submission calls handleSubmit with valid data", async () => {
+    const mockSubmit = jest.fn();
+
+    function Wrapper() {
+      const [date, setDate] = useState("");
+      const [time, setTime] = useState("17:00");
+      const [guests, setGuests] = useState(1);
+      const [occasion, setOccasion] = useState("");
+
+      return (
+        <BookingForm
+          date={date}
+          setDate={setDate}
+          time={time}
+          setTime={setTime}
+          guests={guests}
+          setGuests={setGuests}
+          occasion={occasion}
+          setOccasion={setOccasion}
+          availableTimes={["17:00", "18:00"]}
+          handleSubmit={mockSubmit}
+        />
+      );
+    }
+
+    render(<Wrapper />);
+
+    fireEvent.change(screen.getByLabelText(/Date/i), {
+      target: { value: "2025-12-14" },
+    });
+    fireEvent.change(screen.getByLabelText(/Number of guests/i), {
+      target: { value: 2 },
+    });
+    fireEvent.change(screen.getByLabelText(/Occasion/i), {
+      target: { value: "Birthday" },
+    });
+
+    const button = screen.getByRole("button", {
+      name: /Make Your Reservation/i,
+    });
+
+    await waitFor(() => expect(button).not.toBeDisabled());
+
+    fireEvent.click(button);
+
+    expect(mockSubmit).toHaveBeenCalledWith({
+      date: "2025-12-14",
+      time: "17:00",
+      guests: 2,
+      occasion: "Birthday",
+    });
   });
 });
