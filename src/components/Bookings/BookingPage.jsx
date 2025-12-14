@@ -1,4 +1,3 @@
-// src/components/Bookings/BookingPage.jsx
 import React, { useState, useReducer } from "react";
 import BookingForm from "./BookingForm";
 import ConfirmedBooking from "./ConfirmedBooking";
@@ -6,10 +5,16 @@ import Content from "../Content/Content";
 import { Routes, Route, useNavigate } from "react-router";
 
 export const initializeTimes = () => {
+  if (typeof window.fetchAPI === "function") {
+    return window.fetchAPI(new Date()); // زمان‌های امروز
+  }
   return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 };
 
 export const updateTimes = (state, action) => {
+  if (action.type === "UPDATE_TIMES" && typeof window.fetchAPI === "function") {
+    return window.fetchAPI(new Date(action.date)); // زمان‌های تاریخ انتخاب شده
+  }
   return state;
 };
 
@@ -34,8 +39,8 @@ const BookingPage = () => {
     initializeTimes
   );
 
-  const [bookingData, setBookingData] = useState(null);
   const navigate = useNavigate();
+
   const submitForm = async (data) => {
     if (typeof window.submitAPI === "function") {
       const success = await window.submitAPI(data);
@@ -55,7 +60,10 @@ const BookingPage = () => {
           element={
             <BookingForm
               date={date}
-              setDate={setDate}
+              setDate={(d) => {
+                setDate(d);
+                dispatch({ type: "UPDATE_TIMES", date: d });
+              }}
               time={time}
               setTime={setTime}
               guests={guests}
