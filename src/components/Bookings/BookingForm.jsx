@@ -1,28 +1,57 @@
-import { useState } from "react";
+// src/components/Bookings/BookingForm.jsx
+import React, { useState, useEffect } from "react";
 
-const BookingForm = ({ availableTimes, dispatch }) => {
-  const [date, setDate] = useState("");
-  const [time, setTime] = useState("17:00");
-  const [guests, setGuests] = useState(1);
-  const [occasion, setOccasion] = useState("Birthday");
+export default function BookingForm({
+  date,
+  setDate,
+  time,
+  setTime,
+  guests,
+  setGuests,
+  occasion,
+  setOccasion,
+  availableTimes,
+  handleSubmit,
+  fetchAPIProp,
+}) {
+  const [localTimes, setLocalTimes] = useState(availableTimes || []);
+
+  useEffect(() => {
+    const times =
+      (fetchAPIProp
+        ? fetchAPIProp(new Date(date))
+        : typeof window.fetchAPI === "function"
+        ? window.fetchAPI(new Date(date))
+        : ["17:00", "18:00", "19:00"]) || [];
+    setLocalTimes(times);
+    if (times.length > 0) setTime(times[0]);
+  }, [date, setTime, fetchAPIProp]);
 
   const handleDateChange = (e) => {
-    const selectedDate = e.target.value;
-    setDate(selectedDate);
-    dispatch({ type: "UPDATE_TIMES", date: selectedDate });
+    const value = e.target.value;
+    setDate(value);
+    const times =
+      (fetchAPIProp
+        ? fetchAPIProp(new Date(value))
+        : typeof window.fetchAPI === "function"
+        ? window.fetchAPI(new Date(value))
+        : ["17:00", "18:00", "19:00"]) || [];
+    setLocalTimes(times);
+    if (times.length > 0) setTime(times[0]);
   };
 
-  const handleSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
-    console.log({ date, time, guests, occasion });
+    if (typeof window.submitAPI === "function") {
+      window.submitAPI({ date, time, guests, occasion });
+    }
+    handleSubmit({ date, time, guests, occasion });
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ display: "grid", maxWidth: "200px", gap: "20px" }}
-    >
-      <label htmlFor="res-date">Choose date</label>
+    <form onSubmit={onSubmit}>
+      <h2>Choose date</h2>
+      <label htmlFor="res-date">Date:</label>
       <input
         type="date"
         id="res-date"
@@ -30,28 +59,28 @@ const BookingForm = ({ availableTimes, dispatch }) => {
         onChange={handleDateChange}
       />
 
-      <label htmlFor="res-time">Choose time</label>
+      <label htmlFor="res-time">Time:</label>
       <select
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
       >
-        {availableTimes.map((t) => (
+        {localTimes.map((t) => (
           <option key={t}>{t}</option>
         ))}
       </select>
 
-      <label htmlFor="guests">Number of guests</label>
+      <label htmlFor="guests">Number of guests:</label>
       <input
         type="number"
         id="guests"
-        min="1"
-        max="10"
         value={guests}
         onChange={(e) => setGuests(e.target.value)}
+        min="1"
+        max="10"
       />
 
-      <label htmlFor="occasion">Occasion</label>
+      <label htmlFor="occasion">Occasion:</label>
       <select
         id="occasion"
         value={occasion}
@@ -61,9 +90,7 @@ const BookingForm = ({ availableTimes, dispatch }) => {
         <option>Anniversary</option>
       </select>
 
-      <input type="submit" value="Make Your reservation" />
+      <button type="submit">Make Your Reservation</button>
     </form>
   );
-};
-
-export default BookingForm;
+}
