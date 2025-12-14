@@ -40,12 +40,14 @@ export default function BookingForm({
     if (times.length > 0) setTime(times[0]);
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
+    const formData = { date, time, guests, occasion };
+
     if (typeof window.submitAPI === "function") {
-      window.submitAPI({ date, time, guests, occasion });
+      await window.submitAPI(formData);
     }
-    handleSubmit({ date, time, guests, occasion });
+    await handleSubmit(formData);
   };
 
   return (

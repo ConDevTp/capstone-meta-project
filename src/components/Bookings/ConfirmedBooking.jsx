@@ -1,17 +1,22 @@
-// src/components/Bookings/ConfirmedBooking.jsx
-import React from "react";
+import { useLocation } from "react-router";
 
-export default function ConfirmedBooking({ bookingData }) {
+function ConfirmedBooking() {
+  const location = useLocation();
+  const bookingData = location.state;
+
+  if (!bookingData) {
+    return <p>No booking data available. Please make a booking first.</p>;
+  }
+
   return (
     <div>
       <h2>Booking Confirmed!</h2>
-      <p>Your reservation has been successfully submitted:</p>
-      <ul>
-        <li>Date: {bookingData.date}</li>
-        <li>Time: {bookingData.time}</li>
-        <li>Guests: {bookingData.guests}</li>
-        <li>Occasion: {bookingData.occasion}</li>
-      </ul>
+      <p>Date: {bookingData.date}</p>
+      <p>Time: {bookingData.time}</p>
+      <p>Guests: {bookingData.guests}</p>
+      <p>Occasion: {bookingData.occasion}</p>
     </div>
   );
 }
+
+export default ConfirmedBooking;

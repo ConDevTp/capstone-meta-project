@@ -3,7 +3,7 @@ import React, { useState, useReducer } from "react";
 import BookingForm from "./BookingForm";
 import ConfirmedBooking from "./ConfirmedBooking";
 import Content from "../Content/Content";
-import { Routes, Route } from "react-router";
+import { Routes, Route, useNavigate } from "react-router";
 
 export const initializeTimes = () => {
   return ["17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
@@ -35,9 +35,16 @@ const BookingPage = () => {
   );
 
   const [bookingData, setBookingData] = useState(null);
-
-  const submitForm = (data) => {
-    setBookingData(data);
+  const navigate = useNavigate();
+  const submitForm = async (data) => {
+    if (typeof window.submitAPI === "function") {
+      const success = await window.submitAPI(data);
+      if (success) {
+        navigate("/confirmed-booking", { state: data });
+      }
+    } else {
+      navigate("/confirmed-booking", { state: data });
+    }
   };
 
   return (
@@ -60,12 +67,7 @@ const BookingPage = () => {
             />
           }
         />
-        <Route
-          path="/confirmed"
-          element={
-            bookingData && <ConfirmedBooking bookingData={bookingData} />
-          }
-        />
+        <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
       </Routes>
     </Content>
   );
