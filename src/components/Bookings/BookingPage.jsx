@@ -55,7 +55,7 @@ const BookingPage = () => {
   };
 
   return (
-    <Content>
+    <Content className="booking-page">
       <Routes>
         <Route
           path="/"

@@ -4,3 +4,13 @@ header {
   align-items: center;
   padding-top: 20px;
 }
+
+.nav-toggle {
+  z-index: 21;
+}
+
+@media (min-width: 992px) {
+  .nav-toggle {
+    display: none;
+  }
+}

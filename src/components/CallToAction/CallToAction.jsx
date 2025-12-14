@@ -1,6 +1,7 @@
 import "./calltoaction.css";
 import Img from "../../assets/restauranfood.jpg";
 import Content from "../Content/Content";
+import { Link } from "react-router";
 
 const CallToAction = () => {
   return (
@@ -16,8 +17,9 @@ const CallToAction = () => {
             served with a modern twist. We are a family owned Mediterranean
             restaurant, focused
           </h5>
-
-          <button className="calltoaction-order">Reserve a Table</button>
+          <Link to="/booking">
+            <button className="calltoaction-order">Reserve a Table</button>
+          </Link>
         </div>
 
         <img src={Img} className="calltoaction-image" alt="Restauran Food" />

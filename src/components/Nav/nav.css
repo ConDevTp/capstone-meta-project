@@ -23,3 +23,35 @@
 .nav-link:hover {
   color: #495e57;
 }
+
+@media (max-width: 992px) {
+  .nav-bar {
+    background-color: #edefee;
+    position: absolute;
+    height: 0%;
+    overflow: hidden;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    transition: 0.3s all;
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .nav-link:hover {
+    letter-spacing: 2px;
+  }
+
+  .active-navbar {
+    width: 100%;
+    height: 100%;
+    bottom: 0%;
+    z-index: 20;
+  }
+}

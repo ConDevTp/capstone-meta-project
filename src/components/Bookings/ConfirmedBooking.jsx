@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Content from "../Content/Content";
 
 function ConfirmedBooking() {
   const [bookingData, setBookingData] = useState(null);
@@ -13,13 +14,15 @@ function ConfirmedBooking() {
   }
 
   return (
-    <div>
-      <h2>Booking Confirmed!</h2>
-      <p>Date: {bookingData.date}</p>
-      <p>Time: {bookingData.time}</p>
-      <p>Guests: {bookingData.guests}</p>
-      <p>Occasion: {bookingData.occasion}</p>
-    </div>
+    <Content>
+      <div className="confirm-booking">
+        <h2>Booking Confirmed!</h2>
+        <p>Date: {bookingData.date}</p>
+        <p>Time: {bookingData.time}</p>
+        <p>Guests: {bookingData.guests}</p>
+        <p>Occasion: {bookingData.occasion}</p>
+      </div>
+    </Content>
   );
 }
 

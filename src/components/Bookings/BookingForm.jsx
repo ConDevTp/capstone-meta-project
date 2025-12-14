@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./booking.css";
 
 export default function BookingForm({
   date,
@@ -60,9 +61,7 @@ export default function BookingForm({
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2>Choose date</h2>
-
+    <form onSubmit={onSubmit} className="booking-form">
       <label htmlFor="res-date">Date:</label>
       <input
         type="date"

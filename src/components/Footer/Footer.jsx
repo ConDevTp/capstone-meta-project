@@ -27,7 +27,7 @@ const Footer = () => {
               <Link to="/reservations">Reservations</Link>
             </li>
             <li className="footer-item">
-              <Link to="/order">Order Online</Link>
+              <Link to="/booking">Order Online</Link>
             </li>
           </ul>
         </nav>

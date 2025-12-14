@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Content from "../Content/Content";
 import "./specials.css";
 import SpecialsList from "./SpecialsList";
@@ -9,7 +10,9 @@ const Specials = () => {
         {" "}
         <div className="Specials-Heading">
           <h2>This weeks specials</h2>
-          <button>Online Menu</button>
+          <Link to="/menu">
+            <button>Online Menu</button>
+          </Link>
         </div>
         <SpecialsList />
       </Content>

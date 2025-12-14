@@ -6,6 +6,7 @@ import Footer from "./components/Footer/Footer";
 import "./GlobalStyle.css";
 import ConfirmedBooking from "./components/Bookings/ConfirmedBooking";
 import BookingPage from "./components/Bookings/BookingPage";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
