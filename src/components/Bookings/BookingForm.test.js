@@ -117,7 +117,7 @@ describe("BookingForm validation and submission", () => {
       />
     );
     const button = screen.getByRole("button", {
-      name: /Make Your Reservation/i,
+      name: /On Click/i, // تغییر داده شد
     });
     expect(button).toBeDisabled();
   });
@@ -139,7 +139,7 @@ describe("BookingForm validation and submission", () => {
       />
     );
     const button = screen.getByRole("button", {
-      name: /Make Your Reservation/i,
+      name: /On Click/i, // تغییر داده شد
     });
     expect(button).toBeEnabled();
   });
@@ -182,7 +182,7 @@ describe("BookingForm validation and submission", () => {
     });
 
     const button = screen.getByRole("button", {
-      name: /Make Your Reservation/i,
+      name: /On Click/i, // تغییر داده شد
     });
 
     await waitFor(() => expect(button).not.toBeDisabled());

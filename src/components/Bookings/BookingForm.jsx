@@ -28,7 +28,6 @@ export default function BookingForm({
   }, [date, setTime, fetchAPIProp]);
 
   useEffect(() => {
-    // بررسی اعتبار فرم برای فعال/غیرفعال کردن دکمه
     if (date && time && guests >= 1 && guests <= 10 && occasion) {
       setFormValid(true);
     } else {
@@ -51,7 +50,7 @@ export default function BookingForm({
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!formValid) return; // جلوگیری از ارسال فرم نامعتبر
+    if (!formValid) return;
     const formData = { date, time, guests, occasion };
 
     if (typeof window.submitAPI === "function") {
@@ -108,7 +107,7 @@ export default function BookingForm({
         <option>Anniversary</option>
       </select>
 
-      <button type="submit" disabled={!formValid}>
+      <button type="submit" disabled={!formValid} aria-label="On Click">
         Make Your Reservation
       </button>
     </form>
