@@ -8,3 +8,9 @@
 .content {
   grid-column: 3 / span 8;
 }
+
+@media (max-width: 992px) {
+  .content {
+    grid-column: 2 / span 10;
+  }
+}

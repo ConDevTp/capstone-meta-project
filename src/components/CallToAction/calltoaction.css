@@ -37,3 +37,52 @@
 .calltoaction .calltoaction-order {
   margin-top: 50px !important;
 }
+
+@media (max-width: 992px) {
+  .calltoaction {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .calltoaction .calltoaction-image {
+    width: 100%;
+    margin-top: 50px;
+  }
+
+  .calltoaction .calltoaction-detals {
+    align-items: center;
+    width: 100%;
+  }
+
+  .calltoaction .calltoaction-title,
+  .calltoaction .calltoaction-subtitle,
+  .calltoaction .calltoaction-leadtext {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .calltoaction .calltoaction-title,
+  .calltoaction .calltoaction-subtitle,
+  .calltoaction .calltoaction-leadtext {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .calltoaction .calltoaction-leadtext {
+    margin-top: 30px;
+  }
+
+  .calltoaction .calltoaction-order {
+    margin-top: 35px !important;
+  }
+
+  .calltoaction .calltoaction-image {
+    height: 300px;
+  }
+  .chicago {
+    padding-bottom: 45px !important;
+  }
+}

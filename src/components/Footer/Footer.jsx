@@ -7,11 +7,11 @@ const Footer = () => {
   return (
     <footer className="full-green mt-4">
       <Content className="footer">
-        <div>
+        <div className="footer-container">
           <img src={Logo} alt="Little Lemon" className="footer-logo" />
         </div>
 
-        <nav>
+        <nav className="footer-container">
           <h4 className="footer-title">Doormat Navigation</h4>
           <ul>
             <li className="footer-item">
@@ -32,24 +32,24 @@ const Footer = () => {
           </ul>
         </nav>
 
-        <address>
+        <address className="footer-container">
           <h4 className="footer-title">Contact</h4>
           <p className="footer-item">Address: 123 Main St, City</p>
           <p className="footer-item">Phone: (123) 456-7890</p>
           <p className="footer-item">Email: info@littlelemon.com</p>
         </address>
 
-        <section>
+        <section className="footer-container">
           <h4 className="footer-title">Social Media Links</h4>
           <ul>
             <li className="footer-item">
-              <a href="/">Facebook</a>
+              <a href="#facebook">Facebook</a>
             </li>
             <li className="footer-item">
-              <a href="/about">Instagram</a>
+              <a href="#instagram">Instagram</a>
             </li>
             <li className="footer-item">
-              <a href="/menu">Twitter</a>
+              <a href="#twitter">Twitter</a>
             </li>
           </ul>
         </section>

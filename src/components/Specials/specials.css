@@ -81,3 +81,31 @@
 .food-card .order-btn .order-icon {
   margin-left: 10px;
 }
+
+@media (max-width: 992px) {
+  .Specials-Heading {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .Specials-Heading button {
+    margin-top: 30px;
+  }
+  .SpecialsList {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .specials {
+    margin-top: 70px;
+  }
+
+  .SpecialsList {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    margin-top: 55px;
+  }
+}

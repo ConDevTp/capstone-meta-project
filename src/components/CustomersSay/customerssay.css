@@ -57,3 +57,15 @@
   margin-top: 10px;
   color: #1e1e1e;
 }
+
+@media (max-width: 992px) {
+  .customers-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .customers-list {
+    grid-template-columns: 1fr;
+  }
+}

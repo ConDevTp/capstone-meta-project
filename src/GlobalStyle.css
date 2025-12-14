@@ -81,3 +81,40 @@ button:hover {
 .mt-10 {
   margin-top: 100px;
 }
+
+@media (max-width: 992px) {
+  h1 {
+    font-size: 45px;
+  }
+  h2 {
+    font-size: 35px;
+  }
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .mt-10 {
+    margin-top: 90px;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+  h2 {
+    font-size: 2rem;
+  }
+  h3 {
+    font-size: 16px;
+  }
+
+  button {
+    padding: 12px 15px;
+  }
+}
