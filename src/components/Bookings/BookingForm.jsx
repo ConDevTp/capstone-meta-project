@@ -1,4 +1,3 @@
-// src/components/Bookings/BookingForm.jsx
 import React, { useState, useEffect } from "react";
 
 export default function BookingForm({
@@ -15,6 +14,7 @@ export default function BookingForm({
   fetchAPIProp,
 }) {
   const [localTimes, setLocalTimes] = useState(availableTimes || []);
+  const [formValid, setFormValid] = useState(false);
 
   useEffect(() => {
     const times =
@@ -26,6 +26,15 @@ export default function BookingForm({
     setLocalTimes(times);
     if (times.length > 0) setTime(times[0]);
   }, [date, setTime, fetchAPIProp]);
+
+  useEffect(() => {
+    // بررسی اعتبار فرم برای فعال/غیرفعال کردن دکمه
+    if (date && time && guests >= 1 && guests <= 10 && occasion) {
+      setFormValid(true);
+    } else {
+      setFormValid(false);
+    }
+  }, [date, time, guests, occasion]);
 
   const handleDateChange = (e) => {
     const value = e.target.value;
@@ -42,6 +51,7 @@ export default function BookingForm({
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!formValid) return; // جلوگیری از ارسال فرم نامعتبر
     const formData = { date, time, guests, occasion };
 
     if (typeof window.submitAPI === "function") {
@@ -53,12 +63,14 @@ export default function BookingForm({
   return (
     <form onSubmit={onSubmit}>
       <h2>Choose date</h2>
+
       <label htmlFor="res-date">Date:</label>
       <input
         type="date"
         id="res-date"
         value={date}
         onChange={handleDateChange}
+        required
       />
 
       <label htmlFor="res-time">Time:</label>
@@ -66,6 +78,7 @@ export default function BookingForm({
         id="res-time"
         value={time}
         onChange={(e) => setTime(e.target.value)}
+        required
       >
         {localTimes.map((t) => (
           <option key={t}>{t}</option>
@@ -77,9 +90,10 @@ export default function BookingForm({
         type="number"
         id="guests"
         value={guests}
-        onChange={(e) => setGuests(e.target.value)}
+        onChange={(e) => setGuests(Number(e.target.value))}
         min="1"
         max="10"
+        required
       />
 
       <label htmlFor="occasion">Occasion:</label>
@@ -87,12 +101,16 @@ export default function BookingForm({
         id="occasion"
         value={occasion}
         onChange={(e) => setOccasion(e.target.value)}
+        required
       >
+        <option value="">Select</option>
         <option>Birthday</option>
         <option>Anniversary</option>
       </select>
 
-      <button type="submit">Make Your Reservation</button>
+      <button type="submit" disabled={!formValid}>
+        Make Your Reservation
+      </button>
     </form>
   );
 }
