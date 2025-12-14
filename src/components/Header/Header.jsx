@@ -18,6 +18,7 @@ const Header = () => {
         </Link>
 
         <button
+          aria-label="HambergerMenu"
           className="nav-toggle"
           onClick={() => setIsNavActive(!isNavActive)}
         >

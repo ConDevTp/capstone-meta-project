@@ -1,8 +1,7 @@
-import React, { useState, useReducer } from "react";
+import { useState, useReducer } from "react";
 import BookingForm from "./BookingForm";
-import ConfirmedBooking from "./ConfirmedBooking";
 import Content from "../Content/Content";
-import { Routes, Route, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 export const initializeTimes = () => {
   if (typeof window.fetchAPI === "function") {
@@ -56,29 +55,21 @@ const BookingPage = () => {
 
   return (
     <Content className="booking-page">
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <BookingForm
-              date={date}
-              setDate={(d) => {
-                setDate(d);
-                dispatch({ type: "UPDATE_TIMES", date: d });
-              }}
-              time={time}
-              setTime={setTime}
-              guests={guests}
-              setGuests={setGuests}
-              occasion={occasion}
-              setOccasion={setOccasion}
-              availableTimes={availableTimes}
-              handleSubmit={submitForm}
-            />
-          }
-        />
-        <Route path="/confirmed-booking" element={<ConfirmedBooking />} />
-      </Routes>
+      <BookingForm
+        date={date}
+        setDate={(d) => {
+          setDate(d);
+          dispatch({ type: "UPDATE_TIMES", date: d });
+        }}
+        time={time}
+        setTime={setTime}
+        guests={guests}
+        setGuests={setGuests}
+        occasion={occasion}
+        setOccasion={setOccasion}
+        availableTimes={availableTimes}
+        handleSubmit={submitForm}
+      />
     </Content>
   );
 };

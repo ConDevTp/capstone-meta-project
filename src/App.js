@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router";
 import HomePage from "./components/Homepage";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import "./GlobalStyle.css";
 import ConfirmedBooking from "./components/Bookings/ConfirmedBooking";
 import BookingPage from "./components/Bookings/BookingPage";
 import NotFound from "./components/NotFound/NotFound";

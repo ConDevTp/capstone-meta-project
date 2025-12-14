@@ -18,7 +18,9 @@ const CallToAction = () => {
             restaurant, focused
           </h5>
           <Link to="/booking">
-            <button className="calltoaction-order">Reserve a Table</button>
+            <button aria-label="ReserveTable" className="calltoaction-order">
+              Reserve a Table
+            </button>
           </Link>
         </div>
 

@@ -3,6 +3,7 @@ import Order from "../../assets/order.png";
 import salad from "../../assets/greek salad.jpg";
 import dessert from "../../assets/lemon dessert.jpg";
 import bruchetta from "../../assets/Bruchetta.jpg";
+import { Link } from "react-router";
 
 const SpecialsList = () => {
   return (
@@ -20,10 +21,14 @@ const SpecialsList = () => {
           Chicago style feta cheese, garnished with crunchy garlic and rosemary
           croutons.
         </p>
-        <button className="order-btn">
+        <Link
+          to="/booking"
+          aria-label="go to booking page"
+          className="order-btn"
+        >
           Order a Delivery
           <img className="order-icon" src={Order} alt="delivery icon" />
-        </button>
+        </Link>
       </div>
       <div className="food-card">
         <img src={bruchetta} alt="Greek salad" className="food-image" />
@@ -37,10 +42,14 @@ const SpecialsList = () => {
           Our Bruschetta is made from grilled bread that has been smeared with
           garlic and seasoned with salt and olive oil.
         </p>
-        <button className="order-btn">
+        <Link
+          to="/booking"
+          aria-label="go to booking page"
+          className="order-btn"
+        >
           Order a Delivery
           <img className="order-icon" src={Order} alt="delivery icon" />
-        </button>
+        </Link>
       </div>
       <div className="food-card">
         <img src={dessert} alt="Greek salad" className="food-image" />
@@ -54,10 +63,14 @@ const SpecialsList = () => {
           This comes straight from grandma’s recipe book, every last ingredient
           has been sourced and is as authentic as can be imagined.
         </p>
-        <button className="order-btn">
+        <Link
+          to="/booking"
+          aria-label="go to booking page"
+          className="order-btn"
+        >
           Order a Delivery
           <img className="order-icon" src={Order} alt="delivery icon" />
-        </button>
+        </Link>
       </div>
     </div>
   );

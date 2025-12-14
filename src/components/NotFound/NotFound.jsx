@@ -7,7 +7,10 @@ const NotFound = () => {
       <h2> Page NotFound </h2>
       <p className="mt-4"> We Cant Find AnyThing In This Link. </p>
       <Link to="/">
-        <button className="mt-4"> Go Home </button>
+        <button aria-label="GoHome" className="mt-4">
+          {" "}
+          Go Home{" "}
+        </button>
       </Link>
     </section>
   );

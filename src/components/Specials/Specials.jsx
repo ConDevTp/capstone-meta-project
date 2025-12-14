@@ -11,7 +11,7 @@ const Specials = () => {
         <div className="Specials-Heading">
           <h2>This weeks specials</h2>
           <Link to="/menu">
-            <button>Online Menu</button>
+            <button aria-label="menu">Online Menu</button>
           </Link>
         </div>
         <SpecialsList />
