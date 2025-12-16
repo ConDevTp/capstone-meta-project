@@ -1,70 +1,145 @@
-# Getting Started with Create React App
+<div align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Little Lemon
 
-## Available Scripts
+### Modern • Accessible • Production‑Ready Table Reservation App
 
-In the project directory, you can run:
+**Little Lemon** is a modern, accessible, and user‑friendly **table reservation web application** built with **React**, designed to reflect real‑world frontend standards.
+Focused on **WCAG accessibility**, **clean UX/UI**, and **production‑ready frontend practices** — ideal for portfolio and real‑world showcase.
 
-### `npm start`
+![React](https://img.shields.io/badge/React-18-blue?style=for-the-badge\&logo=react)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow?style=for-the-badge\&logo=javascript)
+![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%20Compliant-success?style=for-the-badge)
+![Testing](https://img.shields.io/badge/Tests-Jest%20%26%20RTL-brightgreen?style=for-the-badge)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Preview
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<div align="center">
 
-### `npm run build`
+<img src="https://raw.githubusercontent.com/ConDevTp/capstone-meta-project/main/src/assets/homePage-preview.png" alt="Little Lemon App Preview" width="900" />
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> Main reservation flow – clean UI, accessible form, responsive layout
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Live Demo
 
-### `npm run eject`
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-%2300AEEF?style=for-the-badge\&logo=appveyor\&logoColor=white)](https://dice-stake.pages.dev/)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![HTML5](https://img.shields.io/badge/HTML5-Semantic-orange?style=for-the-badge\&logo=html5)
+![CSS3](https://img.shields.io/badge/CSS3-Responsive-blue?style=for-the-badge\&logo=css3)
+![React Router](https://img.shields.io/badge/React_Router-Dynamic_Routing-red?style=for-the-badge\&logo=reactrouter)
+![Jest](https://img.shields.io/badge/Jest-Testing_Critical_Flows-C21325?style=for-the-badge\&logo=jest)
+![RTL](https://img.shields.io/badge/RTL-User_Centric_Tests-green?style=for-the-badge)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Key Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* Table Reservation System – Select date, time, guests & occasion
+* Dynamic Available Times – Automatically updates based on selected date
+* Robust Form Validation – HTML5 constraints + React state control
+* Accessibility‑First Architecture
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+  * Semantic HTML structure
+  * Proper `label` / `htmlFor` pairing
+  * ARIA attributes for assistive technologies
+* Persistent Booking Confirmation – Stored securely in `localStorage`
+* Fully Tested Business Logic – Predictable & reliable behavior
+* Responsive UI – Optimized for desktop, tablet & mobile
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Accessibility & UX Philosophy
 
-### Analyzing the Bundle Size
+Accessibility was treated as a core requirement, not an afterthought:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* Semantic elements (`form`, `label`, `button`, `fieldset`)
+* Keyboard‑only navigation support
+* Clear validation messages & system feedback
+* Screen‑reader friendly ARIA labels
+* Simple, real‑world language for better comprehension
 
-### Making a Progressive Web App
+Usability Review
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The user experience was evaluated using Jakob Nielsen’s 10 Usability Heuristics, helping identify friction points and improve clarity, consistency, and feedback.
 
-### Advanced Configuration
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Testing Coverage
 
-### Deployment
+Unit tests written with Jest and React Testing Library, covering:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* Form input validation logic
+* Submit button enable / disable behavior
+* Successful reservation submission
+* API abstraction (`fetchAPI`, `submitAPI`)
+* Booking confirmation persistence via `localStorage`
 
-### `npm run build` fails to minify
+All tests are passing successfully.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## User Journey
+
+Select reservation date
+Available times update dynamically
+Choose time, guests & occasion
+Client‑side validation runs
+Reservation is submitted
+Confirmation is stored
+User receives booking confirmation
+
+---
+
+## Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ConDevTp/capstone-meta-project.git
+```
+
+Navigate into the project folder:
+
+```bash
+cd capstone-meta-project
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the project:
+
+```bash
+npm start
+```
+
+---
+
+<div align="center">
+
+**Little Lemon** — Clean UX • Accessible Design • Real‑World Frontend Practice
+
+</div>
+
+---
+
+<div align="center">
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge\&logo=appveyor\&logoColor=white)](https://opensource.org/licenses/MIT)
+
+© ConDev — All rights reserved.
+
+</div>
