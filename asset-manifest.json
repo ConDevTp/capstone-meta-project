@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/capstone-meta-project/static/css/main.7c8f5b59.css",
+    "main.js": "/capstone-meta-project/static/js/main.2cd3577d.js",
+    "static/js/453.b0cccbb0.chunk.js": "/capstone-meta-project/static/js/453.b0cccbb0.chunk.js",
+    "static/media/restaurant chef B.jpg": "/capstone-meta-project/static/media/restaurant chef B.4b4c2d26b514db32e8fc.jpg",
+    "static/media/greek salad.jpg": "/capstone-meta-project/static/media/greek salad.bed423a1fab5b210e347.jpg",
+    "static/media/restauranfood.jpg": "/capstone-meta-project/static/media/restauranfood.e8abf5b772b6817189aa.jpg",
+    "static/media/restaurant.jpg": "/capstone-meta-project/static/media/restaurant.324d0f99bdf19400a0f7.jpg",
+    "static/media/Bruchetta.jpg": "/capstone-meta-project/static/media/Bruchetta.93f9d69c4608e16c2400.jpg",
+    "static/media/Logo.svg": "/capstone-meta-project/static/media/Logo.6c132dfefa69396bba43f72aa595e62f.svg",
+    "static/media/Maria Johnson.jpg": "/capstone-meta-project/static/media/Maria Johnson.ccdcea01362423e8e2bf.jpg",
+    "static/media/Anna Smith.jpg": "/capstone-meta-project/static/media/Anna Smith.ba5a7f9f30d58ab385d9.jpg",
+    "static/media/Michael Brown.jpg": "/capstone-meta-project/static/media/Michael Brown.fa4be855aa1466a1fcb3.jpg",
+    "static/media/John Davis.jpg": "/capstone-meta-project/static/media/John Davis.333854849cb34643a28e.jpg",
+    "static/media/logo-lg.png": "/capstone-meta-project/static/media/logo-lg.badee42a7364769a66ce.png",
+    "index.html": "/capstone-meta-project/index.html",
+    "main.7c8f5b59.css.map": "/capstone-meta-project/static/css/main.7c8f5b59.css.map",
+    "main.2cd3577d.js.map": "/capstone-meta-project/static/js/main.2cd3577d.js.map",
+    "453.b0cccbb0.chunk.js.map": "/capstone-meta-project/static/js/453.b0cccbb0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7c8f5b59.css",
+    "static/js/main.2cd3577d.js"
+  ]
+}
